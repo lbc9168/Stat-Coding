@@ -1,6 +1,18 @@
 # Using loop to write queries and retrieve results
 
 
+These are required libraries
+
+```R
+library(RSQLite)
+library(plyr)
+library(reshape2)
+library(ggplot2)
+library(DBI)
+```
+
+
+The purpose of following script is to solve the problem that `dbGetQuery` cannot identify `s.INVYR = i` directly in `SELECT * FROM ***` script 
 
 ```R
 
