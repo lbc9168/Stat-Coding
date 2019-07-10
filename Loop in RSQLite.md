@@ -33,6 +33,8 @@ repeat{
                                           AND (s.STATECD = 37 OR s.STATECD = 45 OR s.STATECD = 12 
                                           OR s.STATECD = 47 OR s.STATECD = 13 OR s.STATECD = 1 OR s.STATECD = 28)
   
+                                          # the question mark is to transfer a number to a column factor
+                                          
                                           AND (s.INVYR = ?year OR s.INVYR = ?nextyear)"
                                           , year = selected_year, nextyear = selected_next_year
                                           
