@@ -80,6 +80,7 @@ for i in [37, 45, 12, 47, 13, 1, 28, 5, 22]:
                                         c.STDAGE, c.STDORGCD,rft.TYPGRPCD, 
                                         ftg.MEANING, ps.cn''' % (i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i))
 
+                        # there are 18 'i's since there are 18 '%s' 
 ```
 
 
