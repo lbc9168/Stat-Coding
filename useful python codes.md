@@ -78,7 +78,7 @@ for i in [37, 45, 12, 47, 13, 1, 28, 5, 22]:
 
                          , GROUP BY ps.eval_grp, peg.STATECD,ps.COUNTYCD, 
                                         c.STDAGE, c.STDORGCD,rft.TYPGRPCD, 
-                                        ftg.MEANING, ps.cn\")''' % i)
+                                        ftg.MEANING, ps.cn''' % i)
 
 ```
 
