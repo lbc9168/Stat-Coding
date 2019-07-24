@@ -70,11 +70,11 @@ for i in [37, 45, 12, 47, 13, 1, 28, 5, 22]:
                          AND c.reservcd = 0
                          AND rft.TYPGRPCD = 160
                          AND ('''
-                         ps.eval_grp = %s2016, or ps.eval_grp = %s2015, or ps.eval_grp = %s2014, or ps.eval_grp = %s2013, \n
-                         or ps.eval_grp = %s2012, or ps.eval_grp = %s2011, or ps.eval_grp = %s2010, or ps.eval_grp = %s2019, \n
-                         or ps.eval_grp = %s2008, or ps.eval_grp = %s2007, or ps.eval_grp = %s2006, or ps.eval_grp = %s2005, \n
-                         or ps.eval_grp = %s2004, or ps.eval_grp = %s2003, or ps.eval_grp = %s2002, or ps.eval_grp = %s2001, \n
-                         or ps.eval_grp = %s2000, or ps.eval_grp = %s1999)\n
+                         ps.eval_grp = %s2016, or ps.eval_grp = %s2015, or ps.eval_grp = %s2014, or ps.eval_grp = %s2013, 
+                         or ps.eval_grp = %s2012, or ps.eval_grp = %s2011, or ps.eval_grp = %s2010, or ps.eval_grp = %s2019, 
+                         or ps.eval_grp = %s2008, or ps.eval_grp = %s2007, or ps.eval_grp = %s2006, or ps.eval_grp = %s2005, 
+                         or ps.eval_grp = %s2004, or ps.eval_grp = %s2003, or ps.eval_grp = %s2002, or ps.eval_grp = %s2001, 
+                         or ps.eval_grp = %s2000, or ps.eval_grp = %s1999)
 
                          , GROUP BY ps.eval_grp, peg.STATECD,ps.COUNTYCD, 
                                         c.STDAGE, c.STDORGCD,rft.TYPGRPCD, 
