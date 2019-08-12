@@ -50,7 +50,7 @@ long <- melt(wide, id = c("fips", "date"))
 ```
 
 ### Split a variable
-Given that we have a dataset (d_clean) like this:
+Suppose we have a dataset (d_clean) like this:
 ```
    fips   date       ppt     tmax      tmin
 1 01001 198101  41.14090 11.95955 -2.070000
