@@ -2,6 +2,7 @@
 
 ## Stata
 
+### bysort
 `bysort` command sort the dataset by its following variables, then execute following commands by sorted groups.
 
 For example:
@@ -12,16 +13,33 @@ bysort COUNTYCD Planted_year: egen sd = sd(Planted_area)
 
 ## R
 
-`reshape` command works on reshapping data between wide-format and long-format
+### reshape
+(Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)
+`reshape` package works on reshapping data between wide-format and long-format
 
 For example:
 
-Wide-format
+Wide-format:
 ```
-##      ozone      wind     temp
-## 1 23.61538 11.622581 65.54839
-## 2 29.44444 10.266667 79.10000
-## 3 59.11538  8.941935 83.90323
-## 4 59.96154  8.793548 83.96774
+   fips   date       ppt     tmax      tmin
+1 01001 198101  41.14090 11.95955 -2.070000
+2 01001 198102 185.39970 15.51925  2.804179
 ```
+
+Long-format:
+```
+  fips  date   var     value
+1 01001 198101 ppt     41.1 
+2 01001 198101 tmax    12.0 
+3 01001 198101 tmin    -2.07
+4 01001 198102 ppt    185.  
+5 01001 198102 tmax    15.5 
+6 01001 198102 tmin     2.80
+```
+
+We use `dcast` command to convert long-format to wide-format:
+```R
+wide <- dcast(long, fips+date~var)
+```
+It means to keep fips and date as identification variables, and use values in "var" as new variable names in wide-format.
 
