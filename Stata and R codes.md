@@ -106,7 +106,7 @@
    
    then we get:
    ```
-   Year STATECD COUNTYCD mean_ppt mean_tmax mean_tmin
+      Year STATECD COUNTYCD mean_ppt mean_tmax mean_tmin
    1 1981      01      001   100.09     23.99     10.93
    2 1981      01      003   102.71     25.27     12.53
    3 1981      01      005    96.77     24.66     10.71
