@@ -14,7 +14,7 @@ bysort COUNTYCD Planted_year: egen sd = sd(Planted_area)
 ## R
 
 ### reshape2 package
-(Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)
+*(Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)*
 
 `reshape` package works on reshapping data between wide-format and long-format
 
