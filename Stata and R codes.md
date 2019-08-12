@@ -13,8 +13,9 @@ bysort COUNTYCD Planted_year: egen sd = sd(Planted_area)
 
 ## R
 
-### reshape
+### reshape2 package
 (Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)
+
 `reshape` package works on reshapping data between wide-format and long-format
 
 For example:
@@ -39,7 +40,11 @@ Long-format:
 
 We use `dcast` command to convert long-format to wide-format:
 ```R
-wide <- dcast(long, fips+date~var)
+wide <- dcast(long, fips + date ~ var)
 ```
 It means to keep fips and date as identification variables, and use values in "var" as new variable names in wide-format.
 
+If we want to convert wide-format to long-format, we use `melt`
+```R
+long <- melt(wide, id = c("fips", "date"))
+```
