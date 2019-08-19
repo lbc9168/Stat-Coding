@@ -123,4 +123,18 @@
    PRISM_all_states_wide <- select(PRISM_all_states_wide, -date)
    # remove rows based on value
    PRISM_all_states_wide <- subset(PRISM_all_states_wide, year > 1960)
+   ```
    
+### Merge data
+   Data to be merged are better to be the same form (data.frame).
+   
+   When name of key variables in both datasets are the same:
+   ```R
+   Area_loblolly_reg_wclimate <- merge(Area_loblolly_reg, PRISM_all_states_wide, by = c("year", "statecd", "countycd"))
+   ```
+   
+   When name of key variables in both datasets are NOT the same:
+   ```R
+   Area_loblolly_reg_wclimate <- merge(x = Area_loblolly_reg, y = PRISM_all_states_wide, 
+                                       by.x = c("year", "statecd", "countycd"), by.y = c("Year", "Stateid", "Countyid"))
+   ```
