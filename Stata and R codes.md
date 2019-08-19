@@ -115,3 +115,12 @@
    6 1981      01      011    95.18     24.21     10.35
    ```
    
+### Remove rows or columns in dataset
+   We can use `select` to remove columns, use `subset` to remove rows.
+   
+   ```R
+   # remove column
+   PRISM_all_states_wide <- select(PRISM_all_states_wide, -date)
+   # remove rows based on value
+   PRISM_all_states_wide <- subset(PRISM_all_states_wide, year > 1960)
+   
