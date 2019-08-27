@@ -9,7 +9,16 @@
    ```Stata
    bysort COUNTYCD Planted_year: egen avg = mean(Planted_area)
    bysort COUNTYCD Planted_year: egen sd = sd(Planted_area)
-```
+   ```
+
+### Generate quartly date according to monthly date
+   ```Stata
+   gen qdate = qofd(dofm(ym(year,month)))
+   format %tq qdate
+   ```
+   
+   `qdate` will be exported as character when dataset being exported as .csv to R
+
 
 ## R
 
