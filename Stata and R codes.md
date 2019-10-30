@@ -89,6 +89,7 @@
 ### Moving average
    *(Reference: http://uc-r.github.io/ts_moving_averages
      and https://stackoverflow.com/questions/48068830/r-moving-average-per-group)*
+   
    Moving averages is a smoothing approach that averages values from a window of consecutive time periods, thereby generating a series of averages.
    
    To compute moving avearge we can leverage the `rollmean` function from the `zoo` package. We will need the package `tidyverse` as well. Here is an example:
