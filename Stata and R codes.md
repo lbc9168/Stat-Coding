@@ -191,6 +191,19 @@
    6      01      001 198106  48.87418 33.49761 21.586269
    ```
 
+### Slide data (Create lagged variables)
+   Create lagged data (mostly time):
+   ```
+   slide(data, Var, TimeVar, GroupVar, NewVar, slideBy = -1,
+         keepInvalid = FALSE, reminder = TRUE)
+   ```
+   In real situation application:
+   ```
+   Climate_quartly_NC <- slide(Climate_quartly_NC, Var = "ppt.1", 
+                               TimeVar = "year", GroupVar = "COUNTYCD", NewVar = "ppt.1.lag1", slideBy = -1)
+   ```
+   This script creates a one-year lag variable of ppt.1 in dataset Climate_quartly_NC.
+   
 ### Subsetting data
    *(Reference: https://www.r-bloggers.com/5-ways-to-subset-a-data-frame-in-r/)*
    
