@@ -191,3 +191,10 @@
    6      01      001 198106  48.87418 33.49761 21.586269
    ```
 
+### Subsetting data
+   *(Reference: https://www.r-bloggers.com/5-ways-to-subset-a-data-frame-in-r/)*
+   
+   Subsetting data by values in variables:
+   ```
+   ed_exp4 <- subset(education, Region == 2, select = c("State","Minor.Population","Education.Expenditures"))
+   ```
