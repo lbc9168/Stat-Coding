@@ -107,7 +107,7 @@
     8  1968        1  70.3        77.2
    ```
    This is the finished version, we want to get the moving average number for variable `ppt.1`, grouped by `COUNTYCD`. And the variable `ppt.1.roll3` is the result. 
-   ```
+   ```R
    Climate_quartly_NC <- Climate_quartly_NC %>%
       group_by(COUNTYCD) %>%
       mutate(ppt.2.roll3 = rollmean(ppt.2, k = 3, fill = NA, align = "right"))
@@ -220,12 +220,12 @@
 
 ### Slide data (Create lagged variables)
    Create lagged data (mostly time):
-   ```
+   ```R
    slide(data, Var, TimeVar, GroupVar, NewVar, slideBy = -1,
          keepInvalid = FALSE, reminder = TRUE)
    ```
    In real situation application:
-   ```
+   ```R
    Climate_quartly_NC <- slide(Climate_quartly_NC, Var = "ppt.1", 
                                TimeVar = "year", GroupVar = "COUNTYCD", NewVar = "ppt.1.lag1", slideBy = -1)
    ```
@@ -235,6 +235,6 @@
    *(Reference: https://www.r-bloggers.com/5-ways-to-subset-a-data-frame-in-r/)*
    
    Subsetting data by values in variables:
-   ```
+   ```R
    ed_exp4 <- subset(education, Region == 2, select = c("State","Minor.Population","Education.Expenditures"))
    ```
