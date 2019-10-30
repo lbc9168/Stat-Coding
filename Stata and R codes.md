@@ -86,6 +86,32 @@
                                        by.x = c("year", "statecd", "countycd"), by.y = c("Year", "Stateid", "Countyid"))
    ```
 
+### Moving average
+   *(Reference: http://uc-r.github.io/ts_moving_averages
+     and https://stackoverflow.com/questions/48068830/r-moving-average-per-group)*
+   Moving averages is a smoothing approach that averages values from a window of consecutive time periods, thereby generating a series of averages.
+   
+   To compute moving avearge we can leverage the `rollmean` function from the `zoo` package. We will need the package `tidyverse` as well. Here is an example:
+   
+   We have a dataset like this:
+   ```
+       year COUNTYCD ppt.1 ppt.1.roll3
+    1  1961        1 105.         NA  
+    2  1962        1 116.         NA  
+    3  1963        1  94.3       105. 
+    4  1964        1  99.1       103. 
+    5  1965        1  86.0        93.1
+    6  1966        1 102.         95.9
+    7  1967        1  58.7        82.4
+    8  1968        1  70.3        77.2
+   ```
+   This is the finished version, we want to get the moving average number for variable `ppt.1`, grouped by `COUNTYCD`. And the variable `ppt.1.roll3` is the result. 
+   ```
+   Climate_quartly_NC <- Climate_quartly_NC %>%
+      group_by(COUNTYCD) %>%
+      mutate(ppt.2.roll3 = rollmean(ppt.2, k = 3, fill = NA, align = "right"))
+   ```
+   
    
 ### Remove rows or columns in dataset
    We can use `select` to remove columns, use `subset` to remove rows.
