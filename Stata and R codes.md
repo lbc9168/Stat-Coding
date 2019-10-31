@@ -125,7 +125,17 @@
    PRISM_all_states_wide <- subset(PRISM_all_states_wide, year > 1960)
    ```
 
-
+### Rename a variable
+   *(Reference: http://rprogramming.net/rename-columns-in-r/)*
+   
+   Here is an example of renaming a variable:
+   ```R
+   # Rename a column in R
+   colnames(data)[colnames(data)=="old_name"] <- "new_name"
+   ```
+   
+   There are more examples in the reference page.
+   
 ### reshape2 package
    *(Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)*
 
