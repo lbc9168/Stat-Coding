@@ -18,7 +18,19 @@
    ```
    
    `qdate` will be exported as character when dataset being exported as .csv to R
-
+   
+### Subset a string
+   The following code cuts a variable's subset if the subset is a string.
+   ```Stata
+   Replace testID = substr(testID, 2, length(testID) - 1))
+   ```
+   You should be noted that the first position of a string in Stata is 1 instead of 0 in other languages.
+   
+   A `if` command can be added to commit a restriction:
+   ```Stata
+   Replace testID = substr(testID, 2, length(testID) - 1)) if substr(testID, length(testID)-4, 5) == " DEAD"
+   ```
+   Type `help substr()` in Stata for more information.
 
 ## R
 
