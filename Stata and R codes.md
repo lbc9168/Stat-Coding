@@ -100,10 +100,9 @@
    `x[!duplicated(x)]` can remove all the duplicated elements in x
    
    The function `distinct() [dplyr package]` can be used to keep only unique/distinct rows from a data frame. If there are duplicate rows, only the first row is preserved. It’s an efficient version of the R base function `unique()`.
-   
-   Remove duplicate rows based on all columns:
 
    ```R
+   # Remove duplicate rows based on all columns:
    my_data %>% distinct()
    ```
    ```
