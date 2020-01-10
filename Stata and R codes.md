@@ -84,6 +84,74 @@
    Climate_data <- merge(Climate_data, quarters.map)
    ```
 
+### Identify and Remove Duplicate Data
+   *(Reference: https://www.datanovia.com/en/lessons/identify-and-remove-duplicate-data-in-r/)
+   We need to load `library(tidyverse)` 
+   
+   Given the following vector:
+   ```R
+   x <- c(1, 1, 4, 5, 4, 6)
+   ```
+   `duplicated(x)` gives us the result:
+   
+   [1] FALSE  TRUE FALSE FALSE  TRUE FALSE
+ 
+   `x[!duplicated(x)]` can remove all the duplicated elements in x
+   
+   The function `distinct() [dplyr package]` can be used to keep only unique/distinct rows from a data frame. If there are duplicate rows, only the first row is preserved. It’s an efficient version of the R base function `unique()`.
+   
+   Remove duplicate rows based on all columns:
+
+   ```R
+   my_data %>% distinct()
+   ```
+   ```
+   ## # A tibble: 149 x 5
+   ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+   ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>  
+   ## 1          5.1         3.5          1.4         0.2 setosa 
+   ## 2          4.9         3            1.4         0.2 setosa 
+   ## 3          4.7         3.2          1.3         0.2 setosa 
+   ## 4          4.6         3.1          1.5         0.2 setosa 
+   ## 5          5           3.6          1.4         0.2 setosa 
+   ## 6          5.4         3.9          1.7         0.4 setosa 
+   ## # ... with 143 more rows
+   ```
+   Remove duplicate rows based on certain columns (variables):
+   ```R
+   # Remove duplicated rows based on Sepal.Length
+   my_data %>% distinct(Sepal.Length, .keep_all = TRUE)
+   ```
+   ```
+   ## # A tibble: 35 x 5
+   ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+   ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>  
+   ## 1          5.1         3.5          1.4         0.2 setosa 
+   ## 2          4.9         3            1.4         0.2 setosa 
+   ## 3          4.7         3.2          1.3         0.2 setosa 
+   ## 4          4.6         3.1          1.5         0.2 setosa 
+   ## 5          5           3.6          1.4         0.2 setosa 
+   ## 6          5.4         3.9          1.7         0.4 setosa 
+   ## # ... with 29 more rows
+   ```
+   ```R
+   # Remove duplicated rows based on 
+   # Sepal.Length and Petal.Width
+   my_data %>% distinct(Sepal.Length, Petal.Width, .keep_all = TRUE)
+   ```
+   ```
+   ## # A tibble: 110 x 5
+   ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+   ##          <dbl>       <dbl>        <dbl>       <dbl> <fct>  
+   ## 1          5.1         3.5          1.4         0.2 setosa 
+   ## 2          4.9         3            1.4         0.2 setosa 
+   ## 3          4.7         3.2          1.3         0.2 setosa 
+   ## 4          4.6         3.1          1.5         0.2 setosa 
+   ## 5          5           3.6          1.4         0.2 setosa 
+   ## 6          5.4         3.9          1.7         0.4 setosa 
+   ## # ... with 104 more rows
+   ```  
+
 ### Merge data
    Data to be merged are better to be the same form (data.frame).
    
