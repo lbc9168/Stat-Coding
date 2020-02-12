@@ -231,7 +231,7 @@
    long <- melt(wide, id = c("fips", "date"))
    ```
 
-   We can use command  `reshape` to convert multiple value variables, for example:
+   We can use command  `reshape` to convert multiple value variables, for example, a dataset named `temp`:
    ```
      STATECD COUNTYCD year quarter       ppt     tmean
    1       1        1 1961       1 239.55892 10.623028
