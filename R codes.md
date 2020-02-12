@@ -1,40 +1,7 @@
-# Code notes 
+# R Code notes 
 
-## Stata
 
-### bysort
-   `bysort` command sort the dataset by its following variables, then execute following commands by sorted groups.
-
-   For example:
-   ```Stata
-   bysort COUNTYCD Planted_year: egen avg = mean(Planted_area)
-   bysort COUNTYCD Planted_year: egen sd = sd(Planted_area)
-   ```
-
-### Generate quartly date according to monthly date
-   ```Stata
-   gen qdate = qofd(dofm(ym(year,month)))
-   format %tq qdate
-   ```
-   
-   `qdate` will be exported as character when dataset being exported as .csv to R
-   
-### Subset a string
-   The following code cuts a variable's subset if the subset is a string.
-   ```Stata
-   Replace testID = substr(testID, 2, length(testID) - 1))
-   ```
-   You should be noted that the first position of a string in Stata is 1 instead of 0 in other languages.
-   
-   A `if` command can be added to commit a restriction:
-   ```Stata
-   Replace testID = substr(testID, 2, length(testID) - 1)) if substr(testID, length(testID)-4, 5) == " DEAD"
-   ```
-   Type `help substr()` in Stata for more information.
-
-## R
-
-### Aggregate observations
+## Aggregate observations
 
    Suppose we have a dataset like this:
    
@@ -74,7 +41,7 @@
    6 1981      01      011    95.18     24.21     10.35
    ```
    
-### Create new variable based on existing variables 
+## Create new variable based on existing variables 
 
    ```R
    climate_eastern$season <- "w"
@@ -85,7 +52,7 @@
    
    Commands in `[]` are conditions.
 
-### Create quarter variable
+## Create quarter variable
    `quarter` command is only useful when date variable is in a "date" format. It doesn't work with numeric month or year format.
    
    We can create a quarter map dataset and merge it with original data
@@ -95,7 +62,7 @@
    Climate_data <- merge(Climate_data, quarters.map)
    ```
 
-### Identify and Remove Duplicate Data
+## Identify and Remove Duplicate Data
    *(Reference: https://www.datanovia.com/en/lessons/identify-and-remove-duplicate-data-in-r/)*
    
    We need to load `library(tidyverse)` 
@@ -163,7 +130,7 @@
    ## # ... with 104 more rows
    ```  
 
-### Merge data
+## Merge data
    Data to be merged are better to be the same form (data.frame).
    
    When name of key variables in both datasets are the same:
@@ -177,7 +144,7 @@
                                        by.x = c("year", "statecd", "countycd"), by.y = c("Year", "Stateid", "Countyid"))
    ```
 
-### Moving average
+## Moving average
    *(Reference: http://uc-r.github.io/ts_moving_averages
      and https://stackoverflow.com/questions/48068830/r-moving-average-per-group)*
    
@@ -205,7 +172,7 @@
    ```
    
    
-### Remove rows or columns in dataset
+## Remove rows or columns in dataset
    We can use `select` to remove columns, use `subset` to remove rows.
    
    ```R
@@ -217,7 +184,7 @@
    PRISM_all_states_wide <- subset(PRISM_all_states_wide, year > 1960)
    ```
 
-### Rename a variable
+## Rename a variable
    *(Reference: http://rprogramming.net/rename-columns-in-r/)*
    
    Here is an example of renaming a variable:
@@ -228,7 +195,7 @@
    
    There are more examples in the reference page.
    
-### reshape2 package
+## reshape2 package
    *(Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)*
 
    `reshape` package works on reshapping data between wide-format and long-format
@@ -289,7 +256,7 @@
    6      10        1 1961 104.60288  2.616061 107.787424 15.90629 73.373788 23.78273  81.94045  8.524091
    ```
    
-### Split a variable
+## Split a variable
    Suppose we have a dataset (d_clean) like this:
    ```
       fips   date       ppt     tmax      tmin
@@ -320,7 +287,7 @@
    6      01      001 198106  48.87418 33.49761 21.586269
    ```
 
-### Slide data (Create lagged variables)
+## Slide data (Create lagged variables)
    Create lagged data (mostly time):
    ```R
    slide(data, Var, TimeVar, GroupVar, NewVar, slideBy = -1,
@@ -333,7 +300,7 @@
    ```
    This script creates a one-year lag variable of ppt.1 in dataset Climate_quartly_NC.
    
-### Subsetting data
+## Subsetting data
    *(Reference: https://www.r-bloggers.com/5-ways-to-subset-a-data-frame-in-r/)*
    
    Subsetting data by values in variables:
