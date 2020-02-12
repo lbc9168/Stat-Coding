@@ -173,6 +173,8 @@
    
    
 ## Remove rows or columns in dataset
+   Needs package `dplyr`.
+   
    We can use `select` to remove columns, use `subset` to remove rows.
    
    ```R
