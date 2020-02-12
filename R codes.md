@@ -41,6 +41,40 @@
    6 1981      01      011    95.18     24.21     10.35
    ```
    
+## Average per group
+
+   Needs package `plyr`.
+   
+   Suppose we have a dataset `climate_eastern`:
+   
+   ```
+     year STATECD COUNTYCD       ppt     tmean season
+   1 1895       1        1 185.83761  7.673521      w
+   2 1895       1        1  71.03254  4.110563      w
+   3 1895       1        1 206.70070 13.856620     sp
+   4 1895       1        1  98.70648 18.183873     sp
+   5 1895       1        1  92.23239 21.652817     sp
+   6 1895       1        1 101.24592 26.153098     su
+   ```
+   
+   We want to calculate each season's average ppt and tmean.
+
+   ```r
+   climate_test <- ddply(climate_eastern, .(year, season, STATECD, COUNTYCD), summarize, ppt.avg=mean(ppt), tmean.avg=mean(tmean))
+   ```
+   
+   Then we got:
+   
+   ```
+     year season STATECD COUNTYCD  ppt.avg tmean.avg
+   1 1895      f       1        1 40.39549  18.71430
+   2 1895      f       1        3 62.19067  19.82170
+   3 1895      f       1        5 33.28031  19.21043
+   4 1895      f       1        7 56.11158  17.96872
+   5 1895      f       1        9 64.95404  16.23894
+   6 1895      f       1       11 33.52414  18.65489
+   ```
+   
 ## Create new variable based on existing variables 
 
    ```R
