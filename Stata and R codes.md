@@ -73,6 +73,17 @@
    5 1981      01      009    98.45     22.34      8.57
    6 1981      01      011    95.18     24.21     10.35
    ```
+   
+### Create new variable based on existing variables 
+
+   ```R
+   climate_eastern$season <- "w"
+   climate_eastern$season[climate_eastern$month>=3 & climate_eastern$month<=5]<- "sp"
+   climate_eastern$season[climate_eastern$month>=6 & climate_eastern$month<=8]<- "su" 
+   climate_eastern$season[climate_eastern$month>=9 & climate_eastern$month<=11]<- "f"
+   ```
+   
+   Commands in `[]` are conditions.
 
 ### Create quarter variable
    `quarter` command is only useful when date variable is in a "date" format. It doesn't work with numeric month or year format.
