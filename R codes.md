@@ -291,7 +291,7 @@
    5       9        1 1961  86.21370 -1.671182 128.884970 13.14818 96.742606 21.32861  73.28473  6.165485
    6      10        1 1961 104.60288  2.616061 107.787424 15.90629 73.373788 23.78273  81.94045  8.524091
    ```
-   Need to notice that if multiple rows meets the requirement, the first row will be picked. So if you want to pick the average, you should calculate it first (see Average per group)
+   Need to notice that if multiple rows meets the requirement, the first row will be picked. So if you want to pick the average, you should calculate it first (see *Average per group*)
    
 ## Split a variable
    Suppose we have a dataset (d_clean) like this:
