@@ -164,6 +164,20 @@
    ## # ... with 104 more rows
    ```  
 
+## Loop for Regression
+   We can use `lapply` to loop a regression. 
+   
+   ```R
+   softwood_sum <- lapply(east_softwood, function(x) {
+                     glm(substitute(i ~ ppt.avg.f + ppt.avg.sp + ppt.avg.su + ppt.avg.w +                      
+                     pop_num + PPI_hw + PPI_sw + private, list(i = as.name(x))), data = East_reg, family = binomial)
+                   })
+
+   lapply(softwood_sum, summary)
+   ```
+   
+   In the example above, the results are stored in `softwood_sum`.
+
 ## Merge data
    Data to be merged are better to be the same form (data.frame).
    
