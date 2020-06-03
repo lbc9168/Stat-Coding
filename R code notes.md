@@ -176,7 +176,7 @@
    lapply(softwood_sum, summary)
    ```
    
-   In the example above, the results are stored in `softwood_sum`.
+   In the example above, the results are stored in `softwood_sum`. `east_softwood` is a name list that stores names of dependent variables.
 
 ## Merge data
    Data to be merged are better to be the same form (data.frame).
