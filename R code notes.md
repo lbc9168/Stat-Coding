@@ -3,7 +3,8 @@
 
 ## Aggregate observations
 
-   *(Reference: https://stackoverflow.com/questions/21982987/mean-per-group-in-a-data-frame)
+   *(Reference: https://stackoverflow.com/questions/21982987/mean-per-group-in-a-data-frame)*
+   
    Suppose we have a dataset like this:
    
    ```
