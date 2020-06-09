@@ -15,7 +15,7 @@
    6 1981    06      01      001  48.87418 33.49761 21.586269
    ```
    
-   We want to calculate the average of ppt, tmax, and tmin for the same year in the same county.
+   We want to calculate the average of ppt, tmax, and tmin grouped by year and county.
    
    We need command `ddply` in package `plyr`:
    
