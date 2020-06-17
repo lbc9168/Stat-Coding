@@ -235,6 +235,30 @@
    # remove rows based on value (keep subset of year>1960)
    PRISM_all_states_wide <- subset(PRISM_all_states_wide, year > 1960)
    ```
+   
+
+## Remove or replace a character from a variable
+  Use command `sub`.
+  
+  Suppose we have a dataset as below:
+  
+  ```
+    fips     year  value
+  1 1001    X1970 40.464
+  2 1003    X1970 29.294
+  3 1005    X1970 24.921
+  4 1007    X1970 22.082
+  5 1009    X1970 41.271
+  6 1011    X1970 18.885
+  ```
+  
+  If we want to remove the character "X" in variable `year`, we can use the command below:
+  
+  ```R
+  pop_usa_long$year <- sub("X", "", pop_usa_long$year)
+  ```
+  
+  It works by replacing character "X" by nothing. If we want to replace "X" by something else, we can still apply this command.
 
 ## Rename a variable
    *(Reference: http://rprogramming.net/rename-columns-in-r/)*
