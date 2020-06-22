@@ -98,6 +98,17 @@
    Climate_data <- merge(Climate_data, quarters.map)
    ```
 
+## Factor function
+  *(Reference: https://stats.idre.ucla.edu/r/modules/coding-for-categorical-variables-in-regression-models/)*
+  
+  When we want to create a factor variable based on an existing variable, we just need the command `factor`
+  
+  ```R
+  # creating the factor variable
+  hsb2$race.f <- factor(hsb2$race)
+  ```
+
+
 ## Identify and Remove Duplicate Data
    *(Reference: https://www.datanovia.com/en/lessons/identify-and-remove-duplicate-data-in-r/)*
    
