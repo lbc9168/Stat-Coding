@@ -109,6 +109,28 @@
   ```
 
 
+## Formula with numerous variables
+  *(Reference: https://stackoverflow.com/questions/5774813/short-formula-call-for-many-variables-when-building-a-model)*
+  
+  If we want to create a long model with numerous variables, which is hard to input by hand. For now there are two ways to make it:
+  
+  #### 1. Counstruct the formula manually with `paste` and `as.formula()`
+  
+  ```R
+  xnam <- paste("x", 1:25, sep="")
+  (fmla <- as.formula(paste("y ~ ", paste(xnam, collapse= "+"))))
+  ```
+  
+  then insert this object into regression function: `lm(fmla, data = myData)`
+  
+  #### 2. Extract columns directly from dataset
+  
+  ```R
+  lm(output ~ myData[,2:71], data=myData)
+  ```
+  
+  
+
 ## Identify and Remove Duplicate Data
    *(Reference: https://www.datanovia.com/en/lessons/identify-and-remove-duplicate-data-in-r/)*
    
