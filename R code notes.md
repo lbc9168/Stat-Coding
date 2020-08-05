@@ -129,6 +129,7 @@
   xnam <- names(data.frame(myData[, 1:5], myData[, 9:13]))
   ```
 
+  There is a weird thing when selecting the column. If we select one column like `names(myData[,2])`, the column name will lost, then we have to rename it.
     
 
 ## Identify and Remove Duplicate Data
