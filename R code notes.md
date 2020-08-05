@@ -123,6 +123,12 @@
   
   then insert this object into regression function: `lm(fmla, data = myData)`
   
+  Or simply select variables by selecting columns from dataset:
+  
+  ```R
+  xnam <- names(data.frame(myData[, 1:5], myData[, 9:13]))
+  ```
+
     
 
 ## Identify and Remove Duplicate Data
