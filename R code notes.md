@@ -268,6 +268,9 @@
    
    # remove rows based on value (keep subset of year>1960)
    PRISM_all_states_wide <- subset(PRISM_all_states_wide, year > 1960)
+   
+   # remove rows using logic statement (e.g. remove year 1976 and 2020)
+   tms_pine <- tms_pine[!(tms_pine$year == 1976 | tms_pine$year == 2020),]   # That comma is important
    ```
    
 
