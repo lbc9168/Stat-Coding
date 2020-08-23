@@ -227,6 +227,8 @@
    Area_loblolly_reg_wclimate <- merge(x = Area_loblolly_reg, y = PRISM_all_states_wide, 
                                        by.x = c("year", "statecd", "countycd"), by.y = c("Year", "Stateid", "Countyid"))
    ```
+   
+   (It looks like the sequence of x and y will not influence the the merge result. Should check that later.)
 
 ## Moving average
    *(Reference: http://uc-r.github.io/ts_moving_averages
