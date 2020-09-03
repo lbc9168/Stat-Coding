@@ -268,6 +268,9 @@
    PRISM_all_states_wide <- select(PRISM_all_states_wide, -date)
    quarterly_climate_clean <- subset(quarterly_climate_clean, select = -c(qdate, X1))
    
+   # remove column by index number
+   southern_planting_reg <- southern_planting_reg[-c(16:162)]
+   
    # remove rows based on value (keep subset of year>1960)
    PRISM_all_states_wide <- subset(PRISM_all_states_wide, year > 1960)
    
