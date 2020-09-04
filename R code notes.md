@@ -313,6 +313,11 @@
    
    There are more examples in the reference page.
    
+   Or using command `setnames` in `data.table` package:
+   ```R
+   setnames(South_crop_yield, old = c('CORN', 'COTTON', 'SOYBEANS'), new = c('yield.CORN', 'yield.COTTON', 'yield.SOYBEANS'))
+   ```
+   
 ## reshape2 package
    *(Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)*
 
