@@ -16,7 +16,17 @@
    ```
    
    `qdate` will be exported as character when dataset being exported as .csv to R
-   
+
+## Install package
+   ```Stata
+   ssc inst package
+   ```
+
+## Show the number of unique values in variable
+   ```Stata
+   unique var
+   ```
+
 ## Subset a string
    The following code cuts a variable's subset if the subset is a string.
    ```Stata
@@ -29,3 +39,5 @@
    Replace testID = substr(testID, 2, length(testID) - 1)) if substr(testID, length(testID)-4, 5) == " DEAD"
    ```
    Type `help substr()` in Stata for more information.
+   
+
