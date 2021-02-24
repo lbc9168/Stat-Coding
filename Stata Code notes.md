@@ -26,6 +26,8 @@
    
    eststo clear
    ```
+   
+   For now, I use online converter to export the latex syntax.
 
 ## Generate quartly date according to monthly date
    ```Stata
