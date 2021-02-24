@@ -8,6 +8,24 @@
    bysort COUNTYCD Planted_year: egen avg = mean(Planted_area)
    bysort COUNTYCD Planted_year: egen sd = sd(Planted_area)
    ```
+   
+## esttab package
+
+   To install `esttab`, use `ssc install estout`
+
+   `esttab` produces publication-style tables that display nicely in Stata's results window. The basic syntax of esttab is:
+   ```Stata
+   esttab [ namelist ] [ using filename ] [ , options estout_options ]
+   ```
+   
+   ### Generate summary table
+   
+   ```Stata
+   estpost summary [varlist]  * a table with various summary list
+   esttab, cell((mean sd))    * can also choose other factors
+   
+   eststo clear
+   ```
 
 ## Generate quartly date according to monthly date
    ```Stata
