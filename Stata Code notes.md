@@ -19,6 +19,7 @@
    ```
    
    ### Generate summary table
+   *(Reference: http://repec.sowi.unibe.ch/stata/estout/esttab.html)*
    
    ```Stata
    estpost summary [varlist]  * a table with various summary list
@@ -28,6 +29,17 @@
    ```
    
    For now, I use online converter to export the latex syntax.
+   
+   ### Generate regression result table
+   
+   ```Stata
+   eststo: quietly reg [varlist1]
+   eststo: quietly reg [varlist2]
+   
+   esttab using table.tex, replace wide  
+   ```
+   
+   This will create a table with two regression results.
 
 ## Generate quartly date according to monthly date
    ```Stata
