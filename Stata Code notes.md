@@ -22,8 +22,8 @@
    *(Reference: http://repec.sowi.unibe.ch/stata/estout/esttab.html)*
    
    ```Stata
-   estpost summary [varlist]  * a table with various summary list
-   esttab, cell((mean sd))    * can also choose other factors
+   estpost summary [varlist]  // a table with various summary list
+   esttab, cell((mean sd))    // can also choose other factors
    
    eststo clear
    ```
