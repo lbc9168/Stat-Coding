@@ -77,6 +77,16 @@
    6 1895      f       1       11 33.52414  18.65489
    ```
    
+## Count observations by group
+*(ref: https://dplyr.tidyverse.org/reference/count.html)*
+
+Need package `tidyverse`
+
+```R
+library(tidyverse)
+df %>% count(dem01)
+```
+   
 ## Create new variable based on existing variables 
 
    ```R
