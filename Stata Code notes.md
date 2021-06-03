@@ -55,6 +55,16 @@
    ```Stata
    ssc inst package
    ```
+   
+## Loop
+
+### Generate time dummy variables with loop
+```Stata
+forvalues i = 1970/2016 {
+	generate D`i' = 1 if (year > `i')
+	replace D`i' = 0 if !(year  > `i')
+	}
+```
 
 ## Show the number of unique values in variable
    ```Stata
