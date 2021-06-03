@@ -5,7 +5,7 @@
 
    For example:
    ```Stata
-   bysort COUNTYCD Planted_year: egen avg = mean(Planted_area)
+   bysort COUNTYCD Planted_year: egen avg = mean(Planted_area)  * create variable of mean planted data, group by countycd and planted year
    bysort COUNTYCD Planted_year: egen sd = sd(Planted_area)
    ```
    
