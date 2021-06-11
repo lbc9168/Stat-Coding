@@ -48,7 +48,7 @@
 ### Export data to csv file
 
 ```stata
-outsheet year statecd tmscd countycd avg_area annual_ppt annual_tmean tms_price p_pnw using south_loblolly_plt.csv, comma
+outsheet  year statecd tmscd countycd avg_area tms_price p_pnw  using south_loblolly_plt.csv, comma
 ```
 
 ## Generate quartly date according to monthly date
