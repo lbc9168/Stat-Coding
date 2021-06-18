@@ -49,7 +49,33 @@
 
 ```stata
 outsheet  year statecd tmscd countycd avg_area tms_price p_pnw  using south_loblolly_plt.csv, comma
+
 ```
+
+### Export regression results as latex file
+
+Use package `estout`
+
+First, use `eststo` to store regression results 
+
+```stata
+est clear
+eststo: quietly reg avg_area time_stage_3rd#c.p_pnw time_stage_3rd#c.tms_price p_pnw tms_price /*
+*/ revn_CORN revn_SOYBEAN i.time_stage_3rd i.countycd
+
+eststo: quietly rreg avg_area time_stage_3rd#c.p_pnw time_stage_3rd#c.tms_price p_pnw tms_price /*
+*/ revn_CORN revn_SOYBEAN i.time_stage_3rd i.countycd
+```
+
+Then, use `esttab`to get the LaTex output
+
+```stata
+esttab using"table1.tex", replace ///
+ cells("b(fmt(3) star label(Coef.)) se(par fmt(2) label(Std. err.))") ///
+ nomtitle label star(* 0.10 ** 0.05 *** 0.01)
+```
+
+For more information, go to `help esttab`.
 
 ## Generate quartly date according to monthly date
    ```Stata
