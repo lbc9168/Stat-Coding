@@ -67,7 +67,7 @@ eststo: quietly rreg avg_area time_stage_3rd#c.p_pnw time_stage_3rd#c.tms_price 
 */ revn_CORN revn_SOYBEAN i.time_stage_3rd i.countycd
 ```
 
-Then, use `esttab`to get the LaTex output
+Then, use `esttab`to get the LaTeX output
 
 ```stata
 esttab using"table1.tex", replace ///
