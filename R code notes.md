@@ -77,6 +77,12 @@
    6 1895      f       1       11 33.52414  18.65489
    ```
    
+## Character value with quote marks
+
+To refer values with quote marks, use `\` in front of `"`.
+
+For example, `pet.eval_typ = '\"EXPCURR\"'`
+   
 ## Count observations by group
 *(ref: https://dplyr.tidyverse.org/reference/count.html)*
 
