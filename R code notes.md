@@ -82,6 +82,11 @@
 To refer values with quote marks, use `\` in front of `"`.
 
 For example, `pet.eval_typ = '\"EXPCURR\"'`
+
+## Convert between numeric and character
+Use `as.numeric` or `as.character`.
+
+e.g. `south_planting[1] <- as.numeric(south_planting$sampleYear)`
    
 ## Count observations by group
 *(ref: https://dplyr.tidyverse.org/reference/count.html)*
