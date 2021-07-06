@@ -114,6 +114,35 @@ df %>% count(dem01)
    Climate_data <- merge(Climate_data, quarters.map)
    ```
 
+## Cut part of variable from the right
+   There is few function in R that allows us to position from the right (maybe). So we can first create a function that make a subset from the right, then splitting. *(reference: https://rforexcelusers.com/how-to-mid-right-left-r/)*
+   
+   ```R
+   left = function(text, num_char) {
+          substr(text, 1, num_char)
+          }
+ 
+   mid = function(text, start_num, num_char) {
+         substr(text, start_num, start_num + num_char - 1)
+         }
+ 
+   right = function(text, num_char) {
+           substr(text, nchar(text) - (num_char-1), nchar(text))
+           }
+   ```
+  
+   Then do the cutting.
+   
+   ```R
+   # replace the character
+   south_planting[1] <- rightcut(south_planting$EVAL_GRP,4)
+
+   # change variable name
+   colnames(south_planting)[1] <- "plantYear"
+   ```
+   
+   We can also try to split a variable by creating function.
+
 ## Factor function
   *(Reference: https://stats.idre.ucla.edu/r/modules/coding-for-categorical-variables-in-regression-models/)*
   
@@ -433,6 +462,7 @@ df %>% count(dem01)
    5      01      001 198105  79.19776 27.13030 13.716716
    6      01      001 198106  48.87418 33.49761 21.586269
    ```
+   
 
 ## Slide data (Create lagged variables)
    Create lagged data (mostly time):
