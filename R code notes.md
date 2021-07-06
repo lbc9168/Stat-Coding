@@ -1,6 +1,27 @@
 # R Code notes 
 
 
+## Add a Column to Dataframe Based on Other Columns with dplyr
+*(Reference: https://www.marsja.se/r-add-column-to-dataframe-based-on-other-columns-conditions-dplyr/)*
+
+Should have the `dplyr` package installed.
+
+### Create a new variable by adding two columns
+```R
+south_planting <- south_planting %>%
+  mutate(plantYear = sampleYear - STDAGE)
+```
+
+### Add a Column to a Dataframe Based on Other Column
+```R
+# Adding column based on other column:
+depr_df %>%
+    mutate(Status = case_when(
+    endsWith(ID, "R") ~ "Recovered",
+    endsWith(ID, "S") ~ "Sick"
+    ))
+```
+
 ## Aggregate observations
 
    *(Reference: https://stackoverflow.com/questions/21982987/mean-per-group-in-a-data-frame)*
