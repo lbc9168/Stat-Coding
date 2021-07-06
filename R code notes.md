@@ -245,6 +245,13 @@ df %>% count(dem01)
    ```
    
    (It looks like the sequence of x and y will not influence the the merge result. Should check that later.)
+   
+   ### Merge multiple dataset
+   Use command `rbind` in `do.call`.
+   
+   ```R
+   ufoMerged <- do.call("rbind", list(ufo1, ufo2, ufo3, ufo4))
+   ```
 
 ## Moving average
    *(Reference: http://uc-r.github.io/ts_moving_averages
