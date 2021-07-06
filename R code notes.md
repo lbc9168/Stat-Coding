@@ -274,6 +274,8 @@ df %>% count(dem01)
 ## Loop for Regression
    We can use `lapply` to loop a regression. 
    
+   In this regression, we are changing the dependent variable from `list(i = as.name(x))`. 
+   
    ```R
    softwood_sum <- lapply(east_softwood, function(x) {
                      glm(substitute(i ~ ppt.avg.f + ppt.avg.sp + ppt.avg.su + ppt.avg.w +                      
