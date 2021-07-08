@@ -339,6 +339,7 @@ df %>% count(dem01)
    
    
 ## Remove rows or columns in dataset
+*(Reference: https://stackoverflow.com/questions/4862178/remove-rows-with-all-or-some-nas-missing-values-in-data-frame)*
    Needs package `dplyr`.
    
    We can use `select` to remove columns, use `subset` to remove rows.
@@ -356,6 +357,10 @@ df %>% count(dem01)
    
    # remove rows using logic statement (e.g. remove year 1976 and 2020)
    tms_pine <- tms_pine[!(tms_pine$year == 1976 | tms_pine$year == 2020),]   # That comma is important
+   
+   # remove rows with missing values (NA)
+   # We can use command complete.cases
+   PRISM_all_states <- PRISM_all_states[complete.cases(PRISM_all_states), ]
    ```
    
 
