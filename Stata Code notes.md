@@ -77,6 +77,17 @@ esttab using"table1.tex", replace ///
 
 For more information, go to `help esttab`.
 
+### Export summary statistics as latex file
+
+Use package `sutex`
+
+```stata
+sutex plantAcre pnw_price_ton tms_price annual_ppt annual_tmean oil_real_price ///
+annual_int_rate Revenue_CORN Revenue_SOYBEANS, lab nobs key(descstat) replace ///
+file(descstat.tex) title("Summary statistics")
+
+```
+
 ## Generate quartly date according to monthly date
    ```Stata
    gen qdate = qofd(dofm(ym(year,month)))
