@@ -517,3 +517,12 @@ df %>% count(dem01)
    ```R
    ed_exp4 <- subset(education, Region == 2, select = c("State","Minor.Population","Education.Expenditures"))
    ```
+
+## Switch column sequence (reorder dataframe)
+   *(Reference: https://stackoverflow.com/questions/5620885/how-does-one-reorder-columns-in-a-data-frame)*
+   
+   Just simply reorder by column number.
+   
+   ```R
+   df <- df[, c(5,1,2,3,4,6,7,8,9)]
+   ```
