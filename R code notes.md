@@ -337,6 +337,33 @@ df %>% count(dem01)
       mutate(ppt.2.roll3 = rollmean(ppt.2, k = 3, fill = NA, align = "right"))
    ```
    
+## Number (Identify) variables by group
+*(Reference: https://stackoverflow.com/questions/12925063/numbering-rows-within-groups-in-a-data-frame)*
+
+  ```R
+  library(dplyr)
+  base_cord_test <- base_cord_test %>% group_by(DISTCD) %>% mutate(id = row_number())
+  ```
+  
+  and we can get the result table like this:
+  ```R
+  # A tibble: 297,681 x 4
+  # Groups:   DISTCD [542]
+   DISTCD   lat  long    id
+    <int> <dbl> <dbl> <int>
+ 1    999  2.32 -58.3     1
+ 2    999  6.02 -58.3     2
+ 3    999  5.57 -59.5     3
+ 4     18  5.36 -58.5     1
+ 5    532  5.21 -58.1     1
+ 6     33  3.46 -57.6     1
+ 7     32  4.39 -57.5     1
+ 8     24  4.47 -58.5     1
+ 9    999  4.19 -57.6     4
+10    999  3.23 -57.5     5
+# ... with 297,671 more rows
+  ```
+  
    
 ## Remove rows or columns in dataset
 *(Reference: https://stackoverflow.com/questions/4862178/remove-rows-with-all-or-some-nas-missing-values-in-data-frame)*
