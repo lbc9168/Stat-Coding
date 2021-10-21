@@ -6,6 +6,45 @@
 
 Should have the `dplyr` package installed.
 
+## Add rows with missing years by group
+*(Reference: https://stackoverflow.com/questions/43799109/add-rows-with-missing-years-by-group)*
+
+We have a data frame like this:
+```R
+firm type year value
+A    X    2000     1
+A    X    2004     3
+A    X    2007     7
+```
+
+If we want to fill in the missing years by firm and type, and fill in the missing values, we can get the final table like this:
+
+```R
+firm type year value
+A    X    2000     1
+A    X    2001     1
+A    X    2002     1
+A    X    2003     1
+A    X    2004     3
+A    X    2005     3
+A    X    2006     3
+A    X    2007     7
+A    X    2008     7
+A    X    2009     7
+A    X    2010     7
+```
+
+We can use code like this:
+```R
+library(dplyr)
+library(tidyr)
+
+minimal %>% 
+  group_by(firm, type) %>% 
+  complete(year = full_seq(2000:2010, 1)) %>% 
+  fill(value)
+```
+
 ### Create a new variable by adding two columns
 ```R
 south_planting <- south_planting %>%
