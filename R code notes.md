@@ -142,7 +142,7 @@ depr_df %>%
 
 Relative change can be calculated using command `:=` library `data.table`
 
-The dataframe should be converted to `data.table` type before appling command `:=`. We can run help(":=") for more information.
+The dataframe should be converted to `data.table` type before appling command `:=`. We can run `help(":=")` for more information.
 
 The data table is like:
 
