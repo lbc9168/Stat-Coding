@@ -137,6 +137,57 @@ depr_df %>%
    6 1895      f       1       11 33.52414  18.65489
    ```
    
+## Calculate relative change
+*(ref: https://stackoverflow.com/questions/56724064/calculate-relative-change-in-time-by-group)*
+
+Relative change can be calculated using command `:=` library `data.table`
+
+The dataframe should be converted to `data.table` type before appling command `:=`. We can run help(":=") for more information.
+
+The data table is like:
+
+```R
+lpermno fyear sale
+10065   2001    NA
+10065   2002    NA
+10065   2003    NA
+10065   2004    NA
+59328   2001    26539.000
+59328   2002    26764.000
+59328   2003    30141.000
+59328   2004    34209.000
+61241   2001    3891.754
+61241   2002    2697.029
+61241   2003    3519.168
+61241   2004    5001.435
+```
+
+Use this command:
+
+```R
+dt[, pctchnge := sale / c(sale[1], head(sale, -1)), by="lpermno"][order(lpermno)]
+```
+
+`by=" "` means calculations are within groups in `lpermno`. 
+
+And the results becomes:
+
+```R
+#     lpermno fyear      sale    output
+#  1:   10065  2001        NA        NA
+#  2:   10065  2002        NA        NA
+#  3:   10065  2003        NA        NA
+#  4:   10065  2004        NA        NA
+#  5:   59328  2001 26539.000 1.0000000
+#  6:   59328  2002 26764.000 1.0084781
+#  7:   59328  2003 30141.000 1.1261770
+#  8:   59328  2004 34209.000 1.1349657
+#  9:   61241  2001  3891.754 1.0000000
+# 10:   61241  2002  2697.029 0.6930112
+# 11:   61241  2003  3519.168 1.3048314
+# 12:   61241  2004  5001.435 1.4211981
+```
+   
 ## Character value with quote marks
 
 To refer values with quote marks, use `\` in front of `"`.
@@ -144,6 +195,7 @@ To refer values with quote marks, use `\` in front of `"`.
 For example, `pet.eval_typ = '\"EXPCURR\"'`
 
 ## Convert between numeric and character
+
 Use `as.numeric` or `as.character`.
 
 e.g. `south_planting[1] <- as.numeric(south_planting$sampleYear)`
