@@ -1,66 +1,6 @@
 # R Code notes 
 
 
-## Add a Column to Dataframe Based on Other Columns with dplyr
-*(Reference: https://www.marsja.se/r-add-column-to-dataframe-based-on-other-columns-conditions-dplyr/)*
-
-Should have the `dplyr` package installed.
-
-## Add rows with missing years by group
-*(Reference: https://stackoverflow.com/questions/43799109/add-rows-with-missing-years-by-group)*
-
-We have a data frame like this:
-```R
-firm type year value
-A    X    2000     1
-A    X    2004     3
-A    X    2007     7
-```
-
-If we want to fill in the missing years by firm and type, and fill in the missing values, we can get the final table like this:
-
-```R
-firm type year value
-A    X    2000     1
-A    X    2001     1
-A    X    2002     1
-A    X    2003     1
-A    X    2004     3
-A    X    2005     3
-A    X    2006     3
-A    X    2007     7
-A    X    2008     7
-A    X    2009     7
-A    X    2010     7
-```
-
-We can use code like this:
-```R
-library(dplyr)
-library(tidyr)
-
-minimal %>% 
-  group_by(firm, type) %>% 
-  complete(year = full_seq(2000:2010, 1)) %>% 
-  fill(value)
-```
-
-### Create a new variable by adding two columns
-```R
-south_planting <- south_planting %>%
-  mutate(plantYear = sampleYear - STDAGE)
-```
-
-### Add a Column to a Dataframe Based on Other Column
-```R
-# Adding column based on other column:
-depr_df %>%
-    mutate(Status = case_when(
-    endsWith(ID, "R") ~ "Recovered",
-    endsWith(ID, "S") ~ "Sick"
-    ))
-```
-
 ## Aggregate observations
 
    *(Reference: https://stackoverflow.com/questions/21982987/mean-per-group-in-a-data-frame)*
@@ -220,6 +160,66 @@ df %>% count(dem01)
    ```
    
    Commands in `[]` are conditions.
+   
+### Add a Column to Dataframe Based on Other Columns with dplyr
+*(Reference: https://www.marsja.se/r-add-column-to-dataframe-based-on-other-columns-conditions-dplyr/)*
+
+Should have the `dplyr` package installed.
+
+### Add rows with missing years by group
+*(Reference: https://stackoverflow.com/questions/43799109/add-rows-with-missing-years-by-group)*
+
+We have a data frame like this:
+```R
+firm type year value
+A    X    2000     1
+A    X    2004     3
+A    X    2007     7
+```
+
+If we want to fill in the missing years by firm and type, and fill in the missing values, we can get the final table like this:
+
+```R
+firm type year value
+A    X    2000     1
+A    X    2001     1
+A    X    2002     1
+A    X    2003     1
+A    X    2004     3
+A    X    2005     3
+A    X    2006     3
+A    X    2007     7
+A    X    2008     7
+A    X    2009     7
+A    X    2010     7
+```
+
+We can use code like this:
+```R
+library(dplyr)
+library(tidyr)
+
+minimal %>% 
+  group_by(firm, type) %>% 
+  complete(year = full_seq(2000:2010, 1)) %>% 
+  fill(value)
+```
+
+### Create a new variable by adding two columns
+```R
+south_planting <- south_planting %>%
+  mutate(plantYear = sampleYear - STDAGE)
+```
+
+### Add a Column to a Dataframe Based on Other Column
+```R
+# Adding column based on other column:
+depr_df %>%
+    mutate(Status = case_when(
+    endsWith(ID, "R") ~ "Recovered",
+    endsWith(ID, "S") ~ "Sick"
+    ))
+```
 
 ## Create quarter variable
    `quarter` command is only useful when date variable is in a "date" format. It doesn't work with numeric month or year format.
