@@ -211,6 +211,29 @@ south_planting <- south_planting %>%
   mutate(plantYear = sampleYear - STDAGE)
 ```
 
+### Create lagged variable
+*(Reference: https://stackoverflow.com/questions/31905001/how-to-create-lag-variables)*
+
+Use `Lag()` function (with a capital "L") from the `Hmisc` package:
+
+```R
+library(Hmisc)
+df2$l1pm10 <- Lag(df2$pm10, -1)
+df2$l1pm102 <- Lag(df2$pm10, +1)
+#> df2
+#   var1     pm10   l1pm10  l1pm102
+#1     1 26.95607       NA       NA
+#2     2       NA 32.83869 26.95607
+#3     3 32.83869 39.95607       NA
+#4     4 39.95607       NA 32.83869
+#5     5       NA 40.95607 39.95607
+#6     6 40.95607 33.95607       NA
+#7     7 33.95607 28.95607 40.95607
+#8     8 28.95607 32.34877 33.95607
+#9     9 32.34877       NA 28.95607
+#10   10       NA       NA 32.34877
+```
+
 ### Add a Column to a Dataframe Based on Other Column
 ```R
 # Adding column based on other column:
