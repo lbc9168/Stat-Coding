@@ -547,7 +547,9 @@ depr_df %>%
 ## reshape2 package
    *(Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)*
 
-   `reshape` package works on reshapping data between wide-format and long-format
+   `reshape` package works on reshapping (convert) data between wide-format and long-format.
+   
+   If it shows error message when running `melt` or `decast`, check the format of the dataset, it should be `data.frame`.
 
    For example:
 
