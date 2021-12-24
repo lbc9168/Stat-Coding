@@ -427,9 +427,13 @@ depr_df %>%
    ### Outer join and inner join
    
    **Natural join or Inner Join**: To keep only rows that match from the data frames, specify the argument `all=FALSE`.
+   
    **Full outer join or Outer Join**: To keep all rows from both data frames, specify `all=TRUE`.
+   
    **Left outer join or Left Join**: To include all the rows of your data frame x and only those from y that match, specify `x=TRUE`.
+   
    **Right outer join or Right Join**: To include all the rows of your data frame y and only those from x that match, specify `y=TRUE`.
+   
    
 
 ## Moving average
