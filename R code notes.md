@@ -43,7 +43,7 @@
    6 1981      01      011    95.18     24.21     10.35
    ```
    
-## Average per group
+## Average by group
 
    Needs package `plyr`.
    
@@ -75,6 +75,11 @@
    4 1895      f       1        7 56.11158  17.96872
    5 1895      f       1        9 64.95404  16.23894
    6 1895      f       1       11 33.52414  18.65489
+   ```
+   
+   This method can also calculate summation by group:
+   ```r
+   climate_test <- ddply(climate_eastern, .(year, season, STATECD, COUNTYCD), summarize, ppt.sum=sum(ppt), tmean.sum=sum(tmean))
    ```
    
 ## Calculate relative change
