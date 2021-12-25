@@ -405,6 +405,61 @@ depr_df %>%
    ```
    
    In the example above, the results are stored in `softwood_sum`. `east_softwood` is a name list that stores names of dependent variables.
+   
+   
+## mapply
+  
+  *(Reference: http://makemeanalyst.com/r-programming/loop-functions/mapply/)*
+
+  `mapply` is a package that helps to apply function to selected elements in data frame. It is a simple way to loop functions in R.
+  
+  Example: *(Reference: https://community.rstudio.com/t/r-for-loop-create-new-columns/10418/2)*
+  
+  You can assign multiple columns at once in base R. Just grab the column and data columns,
+
+  ```R
+  set.seed(87)
+  my_data <- data.frame(
+    column1 = rnorm(10),
+    column2 = rnorm(10),
+    column3 = rnorm(10),
+    data1   = rnorm(10),
+    data2   = rnorm(10)
+  )
+  my_names <- names(my_data)
+  column_columns  <- my_names[startsWith(my_names, "column")]
+  data_columns    <- gsub("column", "data", column_columns)
+
+  is_paired <- data_columns %in% my_names
+  data_columns   <- data_columns[is_paired]
+  column_columns <- column_columns[is_paired]
+  ```
+  
+  By building the data column names using the column column names, you're sure to match them up correctly, no matter the physical order. Also, it lets you omit any pairs where the data column doesn't exist.
+
+  Now we can make the names of the results columns, and assign them the results of multiplying each pair. We'll "loop" over the pairs using mapply.
+
+  ```R
+  results_columns <- gsub("column", "results", column_columns)
+
+  my_data[, results_columns] <- mapply(
+    FUN = "*",
+    my_data[column_columns],
+    my_data[data_columns]
+  )
+  print(my_data, digits = 2)
+  #    column1 column2 column3  data1  data2 results1 results2
+  # 1    -2.14 -0.6652    0.32  0.044  0.840   -0.094 -0.55875
+  # 2    -1.72  0.0011   -0.81  1.414 -1.133   -2.437 -0.00128
+  # 3    -1.87 -0.1985   -0.72 -0.804 -0.479    1.504  0.09501
+  # 4    -0.92  0.1079   -0.85 -1.000 -0.008    0.915 -0.00087
+  # 5     1.84  1.5710    0.32 -0.444  1.468   -0.815  2.30646
+  # 6    -0.10  0.5353   -0.55 -0.250  0.182    0.026  0.09750
+  # 7    -0.91  0.0737    1.85  0.626  1.383   -0.570  0.10195
+  # 8    -0.68 -0.6938   -2.13 -0.633 -2.412    0.428  1.67352
+  # 9     1.01  1.3855    0.55 -0.956 -1.247   -0.964 -1.72745
+  # 10   -0.55 -0.4814   -0.57  0.710 -0.809   -0.390  0.38933
+  ```
 
 ## Merge data
    Data to be merged are better to be the same form (data.frame).
