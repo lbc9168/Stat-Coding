@@ -82,6 +82,14 @@
    climate_test <- ddply(climate_eastern, .(year, season, STATECD, COUNTYCD), summarize, ppt.sum=sum(ppt), tmean.sum=sum(tmean))
    ```
    
+## Calculate conditional mean statement
+*(ref: https://stackoverflow.com/questions/12555179/conditional-mean-statement)*
+
+```R
+mean(bwght[bwght$cigs>0,"cigs"])
+```
+   
+   
 ## Calculate relative change
 *(ref: https://stackoverflow.com/questions/56724064/calculate-relative-change-in-time-by-group)*
 
