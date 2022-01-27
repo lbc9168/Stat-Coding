@@ -398,6 +398,41 @@ depr_df %>%
    ## # ... with 104 more rows
    ```  
 
+## Linear Regression
+
+### 1. Basic linear model
+
+  ```R
+  model1 <- lm(y ~ x1 + x2, data = sampledata1)
+  ```
+  
+### 2. Multi-linear model with fixed effects
+
+  There are two ways to add fixed effect variables. 
+  
+  **1. The factor function**
+  
+  ```R
+  # creating the factor variable
+  sampledata1$race.f <- factor(sampledata1$race)
+  is.factor(hsb2$race.f)
+  
+  model2 <- lm(y ~ x1 + x2 + race.f, data = sampledata1)
+  ```
+  
+  **2. Use the factor() function within the lm() function**
+  
+  ```R
+  model3 <- lm(y ~ x1 + x2 + factor(race), data = sampledata1)
+  ```
+  
+### 3. Interaction terms
+  
+  ```R
+  model4 <- lm(y ~ x1 + x2 + factor(race) + x1:factor(race), data = sampledata1)
+  ```
+  
+
 ## Loop for Regression
    We can use `lapply` to loop a regression. 
    
