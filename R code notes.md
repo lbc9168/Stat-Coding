@@ -399,6 +399,11 @@ depr_df %>%
    ```  
 
 ## Linear Regression
+  
+  ```R
+  library(tidyverse)
+  library(caret)
+  ```
 
 ### 1. Basic linear model
 
