@@ -115,7 +115,8 @@ forvalues i = 1970/2016 {
 
 ```Stata
 reg y x1 x2 x3
-predict y_prdt   *y_prdt is the name of variable
+predict y_prdt   
+* y_prdt is the name of variable
 ```
 
 ## Show the number of unique values in variable
