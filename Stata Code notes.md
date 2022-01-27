@@ -111,6 +111,13 @@ forvalues i = 1970/2016 {
 	}
 ```
 
+## Predict after regression
+
+```Stata
+reg y x1 x2 x3
+predict y_prdt   *y_prdt is the name of variable
+```
+
 ## Show the number of unique values in variable
    ```Stata
    unique var
