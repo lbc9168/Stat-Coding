@@ -781,6 +781,16 @@ depr_df %>%
    ed_exp4 <- subset(education, Region == 2, select = c("State","Minor.Population","Education.Expenditures"))
    ```
 
+### Keep data based on other dataset (intersection)
+  *(Reference: https://stat.ethz.ch/R-manual/R-devel/library/base/html/sets.html)*
+
+  Still use `subset`, but with command `%in`.
+
+  ```R
+  TMF_concession_final <- subset(TMF_concession, UID %in% begin_forest_point_concession$UID)
+  ```
+
+
 ## Switch column sequence (reorder dataframe)
    *(Reference: https://stackoverflow.com/questions/5620885/how-does-one-reorder-columns-in-a-data-frame)*
    
