@@ -784,7 +784,7 @@ depr_df %>%
 ### Keep data based on other dataset (intersection)
   *(Reference: https://stat.ethz.ch/R-manual/R-devel/library/base/html/sets.html)*
 
-  Still use `subset`, but with command `%in`.
+  Still use `subset`, but with command `%in%`.
 
   ```R
   TMF_concession_final <- subset(TMF_concession, UID %in% begin_forest_point_concession$UID)
