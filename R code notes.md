@@ -397,6 +397,19 @@ depr_df %>%
    ## 6          5.4         3.9          1.7         0.4 setosa 
    ## # ... with 104 more rows
    ```  
+   
+   
+   ### Check duplicated data within two vectors
+   
+   Use command `intersect(x1,x2)`.
+   
+   `intersect` can show the list of all duplicated elements in `x1` and `x2`.
+   
+   ```R
+   length(intersect(concession_covariate$UID, TMF_concession_final$UID))
+   ```
+   
+   `length` can show the length of the list.
 
 ## Linear Regression
   
