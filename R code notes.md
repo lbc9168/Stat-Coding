@@ -538,8 +538,10 @@ depr_df %>%
    
    (It looks like the sequence of x and y will not influence the the merge result. Should check that later.)
    
-   ### Merge multiple dataset
-   Use command `rbind` in `do.call`.
+   Alert: If there is duplicated elements in data to be merged, the new dataset may have more observations than the original datasets.
+   
+   ### Merge multiple dataset (vertical combine)
+   Use command `rbind` in `do.call`. The datasets need to have the same variables. 
    
    ```R
    ufoMerged <- do.call("rbind", list(ufo1, ufo2, ufo3, ufo4))
