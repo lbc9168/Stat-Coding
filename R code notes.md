@@ -774,6 +774,19 @@ depr_df %>%
    6      01      001 198106  48.87418 33.49761 21.586269
    ```
    
+   
+## Split a vector and turn them into seperate vectors
+
+   We can turn this vector into a matrix, then appoint the columns or rows into new vectors.
+   
+   ```R
+   my_vec <- as.character(1:12)
+   m <- matrix(my_vec, ncol=4, byrow=TRUE)
+   test_vec1 <- m[,1]
+   test_vec2 <- m[1,]
+   ```
+
+  
 
 ## Slide data (Create lagged variables)
    Create lagged data (mostly time):
