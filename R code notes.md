@@ -782,11 +782,10 @@ depr_df %>%
    ```R
    my_vec <- as.character(1:12)
    m <- matrix(my_vec, ncol=4, byrow=TRUE)
-   test_vec1 <- m[,1]
-   test_vec2 <- m[1,]
+   test_vec1 <- m[,1]   # turn column into new vector
+   test_vec2 <- m[1,]   # turn row into vector
    ```
 
-  
 
 ## Slide data (Create lagged variables)
    Create lagged data (mostly time):
