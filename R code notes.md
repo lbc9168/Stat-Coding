@@ -742,7 +742,20 @@ depr_df %>%
    6      10        1 1961 104.60288  2.616061 107.787424 15.90629 73.373788 23.78273  81.94045  8.524091
    ```
    Need to notice that if multiple rows meets the requirement, the first row will be picked. So if you want to pick the average, you should calculate it first (see *Average per group*)
-   
+
+
+## Save multiple objests to a file
+
+  ```R
+  # Saving on object in RData format
+  save(data1, file = "data.RData")
+  # Save multiple objects
+  save(data1, data2, file = "data.RData")
+  # To load the data again
+  load("data.RData")
+  ```
+
+
 ## Split a variable
    Suppose we have a dataset (d_clean) like this:
    ```
