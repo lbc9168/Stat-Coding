@@ -614,6 +614,15 @@ depr_df %>%
   ```
   
    
+## Random select rows
+
+  Use command `sample_n()` in package 'dplyr`.
+  
+  ```R
+  C_MT_points_shrink <- sample_n(C_MT_points, 5000)  # select 5,000 rows from dataframe C_MT_points
+  ```
+   
+   
 ## Remove rows or columns in dataset
 *(Reference: https://stackoverflow.com/questions/4862178/remove-rows-with-all-or-some-nas-missing-values-in-data-frame)*
    Needs package `dplyr`.
