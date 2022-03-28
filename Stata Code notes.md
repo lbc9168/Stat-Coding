@@ -96,6 +96,13 @@ file(descstat.tex) title("Summary statistics")
    
    `qdate` will be exported as character when dataset being exported as .csv to R
 
+## Generate variables using if
+   ```Stata
+   gen Tstage = 0
+   replace Tstage = 1 if (year > 1997 & year < 2009)
+   replace Tstage = 2 if (year >= 2009)
+   ```
+
 ## Install package
    ```Stata
    ssc inst package
