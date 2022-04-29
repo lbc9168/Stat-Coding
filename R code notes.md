@@ -553,9 +553,9 @@ depr_df %>%
    
    **Full outer join or Outer Join**: To keep all rows from both data frames, specify `all=TRUE`.
    
-   **Left outer join or Left Join**: To include all the rows of your data frame x and only those from y that match, specify `x=TRUE`.
+   **Left outer join or Left Join**: To include all the rows of your data frame x and only those from y that match, specify `all.x=TRUE`.
    
-   **Right outer join or Right Join**: To include all the rows of your data frame y and only those from x that match, specify `y=TRUE`.
+   **Right outer join or Right Join**: To include all the rows of your data frame y and only those from x that match, specify `all.y=TRUE`.
    
    
 
