@@ -81,7 +81,17 @@
    ```r
    climate_test <- ddply(climate_eastern, .(year, season, STATECD, COUNTYCD), summarize, ppt.sum=sum(ppt), tmean.sum=sum(tmean))
    ```
-   
+
+## Balance Panel Data
+
+```R
+bal_panel_timber_matched <- complete(Panel_timber_matched, UID, year)
+# Based on UID and year, fill missed values with "NA"
+
+bal_panel_timber_matched <- subset(bal_panel_timber_matched, !UID %in% unique(UID[is.na(slat)]))
+# when an observation has value "NA" in column "slat", remove all observations that has the same UID
+```
+
 ## Calculate conditional mean statement
 *(ref: https://stackoverflow.com/questions/12555179/conditional-mean-statement)*
 
