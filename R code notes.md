@@ -162,6 +162,15 @@ For example, `pet.eval_typ = '\"EXPCURR\"'`
 Use `as.numeric` or `as.character`.
 
 e.g. `south_planting[1] <- as.numeric(south_planting$sampleYear)`
+
+## Count the number of occurences in a column
+*(ref: https://www.programmingr.com/count-occurrences-in-column/)*
+
+```R
+# how to count number of occurrences in a column
+df = ToothGrowth
+table(df$supp)
+```
    
 ## Count observations by group
 *(ref: https://dplyr.tidyverse.org/reference/count.html)*
