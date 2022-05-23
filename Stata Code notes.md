@@ -135,7 +135,7 @@ predict y_prdt
 ## String match
 (*Reference: http://wlm.userweb.mwn.de/Stata/wstavart.htm*)   
 
-   Use "strmatch(s1, s2)" if we want a statement about a string variable. `s1` is a variable or character we want to match, `s2` is the pattern. It will return 1 if the variable matches the pattern, 0 if not.
+   Use `strmatch(s1, s2)` if we want a statement about a string variable. `s1` is a variable or character we want to match, `s2` is the pattern. It will return 1 if the variable matches the pattern, 0 if not.
 
    ```Stata
    gen treatStatus = 0
