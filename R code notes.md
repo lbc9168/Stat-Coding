@@ -706,7 +706,20 @@ depr_df %>%
    ```R
    setnames(South_crop_yield, old = c('CORN', 'COTTON', 'SOYBEANS'), new = c('yield.CORN', 'yield.COTTON', 'yield.SOYBEANS'))
    ```
-   
+
+## Replace null values in a column by a value from another column
+  We can use function `coalesce` in package `dplyr` to achieve this
+  
+  ```R
+  library(dplyr)
+  
+  # in dataframe df, replace null values in column x by values in column y
+  df <- df %>% 
+          mutate(x = coalesce(x, y))  
+  ```
+  
+  
+
 ## reshape2 package
    *(Reference: https://www.r-bloggers.com/reshape-and-aggregate-data-with-the-r-package-reshape2/)*
 
@@ -781,6 +794,19 @@ depr_df %>%
   save(data1, data2, file = "data.RData")
   # To load the data again
   load("data.RData")
+  ```
+  
+## Select characters from column
+  We can build a function in R to select characters from a column.
+  
+  For example, select `n` characters from the right of column `x`:
+  
+  ```R
+  substrRight <- function(x, n){
+    substr(x, nchar(x)-n+1, nchar(x))
+  }
+
+  County_list$current <- substrRight(County_list$County_name, 1)
   ```
 
 ## Slide data (Create lagged variables)
