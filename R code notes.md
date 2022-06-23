@@ -671,7 +671,7 @@ depr_df %>%
    
    ```R
    SE_ct_presence_77to87 <- South_cluster_summed %>% 
-        select(STATECD, COUNTYCD, S_1, S_2, H_2527, H_2628, H_31, H_32, H_34, H_35) %>%
+        select(year, STATECD, COUNTYCD, S_1, S_2, H_2527, H_2628, H_31, H_32, H_34, H_35) %>%
         filter(year >= 1977 & year <= 1987)
    ```
 
