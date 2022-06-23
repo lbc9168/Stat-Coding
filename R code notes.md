@@ -667,6 +667,13 @@ depr_df %>%
    PRISM_all_states <- PRISM_all_states[complete.cases(PRISM_all_states), ]
    ```
    
+   We can also use pipe in `tidyverse` to do it in a more elegant way:
+   
+   ```R
+   SE_ct_presence_77to87 <- South_cluster_summed %>% 
+        select(STATECD, COUNTYCD, S_1, S_2, H_2527, H_2628, H_31, H_32, H_34, H_35) %>%
+        filter(year >= 1977 & year <= 1987)
+   ```
 
 ## Remove or replace a character from a variable
   Use command `sub`.
