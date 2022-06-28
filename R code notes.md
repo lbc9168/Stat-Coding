@@ -698,6 +698,10 @@ depr_df %>%
   
   It works by replacing character "X" by nothing. If we want to replace "X" by something else, we can still apply this command.
 
+## Remove repeated rows
+  *(Reference: https://r-lang.com/how-to-remove-duplicates-in-r-with-example/#:~:text=To%20remove%20duplicate%20rows%20from%20a%20data%20frame,frame%20in%20R%2C%20use%20the%20data.frame%20%28%29%20method.)*
+  
+
 ## Rename a variable
    *(Reference: http://rprogramming.net/rename-columns-in-r/)*
    
