@@ -172,7 +172,7 @@ df = ToothGrowth
 table(df$supp)
 ```
    
-## Count observations by group
+## Count unique observations by group
 *(ref: https://dplyr.tidyverse.org/reference/count.html)*
 
 Need package `tidyverse`
