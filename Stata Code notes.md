@@ -11,6 +11,32 @@
    bysort COUNTYCD Planted_year: egen sd = sd(Planted_area)
    ```
    
+   
+## Create lag variable
+   *(Reference: https://www.stata.com/support/faqs/data-management/creating-lagged-variables/)*
+   
+   Create lag (or lead) variables using subscripts.
+   
+   ```Stata
+   gen lag1 = x[_n-1]
+   gen lag2 = x[_n-2]
+   gen lead1 = x[_n+1]
+   ```
+	
+   You can create lag (or lead) variables for different subgroups using the by prefix. For example,
+  
+   ```Stata
+   sort state year 
+   by state: gen lag1 = x[_n-1]
+   ```
+	
+   If there are gaps in your records and you only want to lag successive years, you can specify
+   
+   ```Stata
+   sort state year
+   by state: gen lag1 = x[_n-1] if year==year[_n-1]+1
+   ```
+	
 ## esttab package
 
    To install `esttab`, use `ssc install estout`
