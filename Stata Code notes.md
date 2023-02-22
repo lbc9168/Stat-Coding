@@ -36,7 +36,17 @@
    sort state year
    by state: gen lag1 = x[_n-1] if year==year[_n-1]+1
    ```
-	
+
+## Create percentage summaries 
+   *(Reference: https://www.stata.com/support/faqs/data-management/creating-percent-summary-variables/)*
+   
+   Use `tabulate`
+   
+   ```Stata
+   tabulate year annual_change_val if (concession_type != 0)
+   ```
+   
+
 ## esttab package
 
    To install `esttab`, use `ssc install estout`
